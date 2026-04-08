@@ -24,7 +24,7 @@ def main():
 
 
 if __name__ == "__main__":
-=======
+
 from src.preprocessing import load_data, clean_data, prepare_data, split_and_scale
 from src.classification import run_classification
 from src.regression import run_regression
