@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from src.preprocessing import load_data, clean_data, prepare_data, split_and_scale
 from src.classification import run_classification
 from src.regression import run_regression
@@ -50,5 +50,5 @@ def main():
 
 
 if __name__ == "__main__":
->>>>>>> 039376d8fa067fc391fc57bf47d19f81d77820f2
+
     main()
