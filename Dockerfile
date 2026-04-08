@@ -1,29 +1,19 @@
-<<<<<<< HEAD
+# Usamos Python 3.10 slim como base ligera
 FROM python:3.10-slim
 
+# Establecemos el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-COPY . .
+# Copiamos los archivos necesarios
+COPY requirements.txt .
+COPY src/ ./src
+COPY main.py .
 
-ENV PYTHONPATH=/app
-
-RUN pip install --no-cache-dir -r requirements.txt
-
+# Creamos carpetas para outputs
 RUN mkdir -p outputs/metrics outputs/plots
 
-CMD ["python", "main.py"]
-=======
-FROM python:3.10-slim
-
-WORKDIR /app
-
-COPY . .
-
-ENV PYTHONPATH=/app
-
+# Instalamos dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p outputs/metrics outputs/plots
-
+# Comando por defecto al ejecutar el contenedor
 CMD ["python", "main.py"]
->>>>>>> 039376d8fa067fc391fc57bf47d19f81d77820f2
