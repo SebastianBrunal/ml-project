@@ -1,7 +1,18 @@
-FROM jenkins/jenkins:lts
+# Usamos Python 3.10 slim
+FROM python:3.10-slim
 
-USER root
+# Directorio de trabajo
+WORKDIR /app
 
-RUN apt-get update && apt-get install -y docker.io
+# Copiamos requirements.txt y luego instalamos
+COPY requirements.txt .
 
-USER jenkins
+# Instalamos dependencias
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiamos el código
+COPY src/ ./src
+COPY main.py .
+
+# Creamos directorios de salida
+RUN mkdir -p outputs/metrics outputs/plots
